@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class FileCRUD {
+    private String fileName;
+
     public void createFile() {
         System.out.println("Iveskite failo pavadinima \u263B ");
         Scanner sc = new Scanner(System.in);
@@ -62,15 +64,15 @@ public class FileCRUD {
         }
     }
 
-    public void readFile(){
+    public void readFile() {
         System.out.println("Iveskite failo pavaadinima");
         Scanner sc = new Scanner(System.in);
         String fileName = sc.nextLine();
         File file = new File(fileName);
-        if (file.exists()){
+        if (file.exists()) {
             try {
                 Scanner fileScanner = new Scanner(file);
-                while (fileScanner.hasNext()){
+                while (fileScanner.hasNext()) {
                     System.out.println(fileScanner.nextLine());
                 }
                 fileScanner.close();
@@ -80,18 +82,21 @@ public class FileCRUD {
         }
     }
 
-    public void deleteFile(){
+    public void deleteFile() {
         System.out.println("Iveskite failo pavadinima trinimui");
         Scanner sc = new Scanner(System.in);
         String fileName = sc.nextLine();
         File file = new File(fileName);
-        if(file.exists()){
+        if (file.exists()) {
             System.out.println("Toks failas jau egzistuoja, ar tikrai norite ji trinti> y/N");
             String pasirinkimas = sc.nextLine();
-            if(pasirinkimas.toLowerCase().equals("y")){
+            if (pasirinkimas.toLowerCase().equals("y")) {
                 file.delete();
                 System.out.println("Failas sekmingai istrintas");
             }
         }
+    }
+
+    public void requestFileName() {
     }
 }
