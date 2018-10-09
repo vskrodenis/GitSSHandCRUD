@@ -10,10 +10,7 @@ public class FileCRUD {
     private String fileName;
 
     public void createFile() {
-        System.out.println("Iveskite failo pavadinima \u263B ");
         Scanner sc = new Scanner(System.in);
-        String fileName = sc.nextLine();
-        System.out.println("Ivestas failo pavadinimas: " + fileName + "\u263B");
         File file = new File(fileName);
         if (file.exists()) {
             System.out.println("Toks failas egzistuoja \u263B");
@@ -34,10 +31,8 @@ public class FileCRUD {
     }
 
     public void updateFile() {
-        System.out.println("Iveskite failo pavadinima");
         Scanner sc = new Scanner(System.in);
-        String failoVardas = sc.nextLine();
-        File file = new File(failoVardas);
+        File file = new File(fileName);
 
         if (file.exists()) {
             System.out.println("Toks failas egzistuoja");
@@ -65,9 +60,6 @@ public class FileCRUD {
     }
 
     public void readFile() {
-        System.out.println("Iveskite failo pavaadinima");
-        Scanner sc = new Scanner(System.in);
-        String fileName = sc.nextLine();
         File file = new File(fileName);
         if (file.exists()) {
             try {
@@ -83,9 +75,7 @@ public class FileCRUD {
     }
 
     public void deleteFile() {
-        System.out.println("Iveskite failo pavadinima trinimui");
         Scanner sc = new Scanner(System.in);
-        String fileName = sc.nextLine();
         File file = new File(fileName);
         if (file.exists()) {
             System.out.println("Toks failas jau egzistuoja, ar tikrai norite ji trinti> y/N");
@@ -98,5 +88,9 @@ public class FileCRUD {
     }
 
     public void requestFileName() {
+        System.out.println("Iveskite failo pavadinimas");
+        Scanner sc = new Scanner(System.in);
+         fileName = sc.nextLine();
+
     }
 }
