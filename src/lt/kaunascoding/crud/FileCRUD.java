@@ -1,6 +1,7 @@
 package lt.kaunascoding.crud;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -58,6 +59,24 @@ public class FileCRUD {
             }
 
 
+        }
+    }
+
+    public void readFile(){
+        System.out.println("Iveskite failo pavaadinima");
+        Scanner sc = new Scanner(System.in);
+        String fileName = sc.nextLine();
+        File file = new File(fileName);
+        if (file.exists()){
+            try {
+                Scanner fileScanner = new Scanner(file);
+                while (fileScanner.hasNext()){
+                    System.out.println(fileScanner.nextLine());
+                }
+                fileScanner.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
