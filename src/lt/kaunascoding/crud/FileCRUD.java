@@ -17,7 +17,7 @@ public class FileCRUD {
             System.out.println("Toks failas egzistuoja \u263B");
         } else {
             System.out.println("Toks failas neegzistuoja \uD83D\uDE1E");
-            System.out.println("Ar toki faila sukurti? Y/n");
+            System.out.println("Ar toki faila sukurti? y/N");
             String arSukurti = sc.nextLine();
             if (arSukurti.toLowerCase().equals("y")) {
                 try {
@@ -76,6 +76,21 @@ public class FileCRUD {
                 fileScanner.close();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
+            }
+        }
+    }
+
+    public void deleteFile(){
+        System.out.println("Iveskite failo pavadinima trinimui");
+        Scanner sc = new Scanner(System.in);
+        String fileName = sc.nextLine();
+        File file = new File(fileName);
+        if(file.exists()){
+            System.out.println("Toks failas jau egzistuoja, ar tikrai norite ji trinti> y/N");
+            String pasirinkimas = sc.nextLine();
+            if(pasirinkimas.toLowerCase().equals("y")){
+                file.delete();
+                System.out.println("Failas sekmingai istrintas");
             }
         }
     }

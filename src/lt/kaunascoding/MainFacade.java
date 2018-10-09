@@ -9,6 +9,7 @@ public class MainFacade {
         model.createFile();
         model.updateFile();
         model.readFile();
+        model.deleteFile();
     }
 }
 
